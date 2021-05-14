@@ -70,13 +70,13 @@ static THD_FUNCTION(Navigation, arg) {
     	if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H && k==0){
 			max_norm_index_t1 = max_norm_index;
 		}
-    	if(k==1)
+    	if(k==3)
 		{
 			max_norm_index_t2 = max_norm_index;
 			delta_max_norm_index = max_norm_index_t2-max_norm_index_t1;
 		}
 
-    	if(k==0){k=1;}else{k=0;}
+    	if(k<3){k++;}else{k=0;}
 
     	//chprintf((BaseSequentialStream *)&SDU1,"max_i: %d \n", max_norm_index);
 
@@ -114,7 +114,7 @@ static THD_FUNCTION(Navigation, arg) {
 			time_turn = chVTGetSystemTime();
 			//chprintf((BaseSequentialStream *)&SDU1,"delta: %d \n", delta_max_norm_index);
 
-			while(chVTGetSystemTime()-time_turn<MS2ST(2130)){
+			while(chVTGetSystemTime()-time_turn<MS2ST(2120)){
 				left_motor_set_speed(-TURNING_SPEED);
 				right_motor_set_speed(TURNING_SPEED);
 			}

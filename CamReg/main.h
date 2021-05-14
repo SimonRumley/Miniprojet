@@ -15,9 +15,9 @@ extern "C" {
 #define WIDTH_SLOPE				5
 #define MIN_LINE_WIDTH			40
 //#define ROTATION_THRESHOLD		10
-#define ROTATION_COEFF			2
+#define ROTATION_COEFF			1
 #define ERROR_THRESHOLD			5.0f	//[cm] because of the noise of the camera
-#define KP						0.8f
+#define KP						0.6f
 
 
 /** Robot wide IPC bus. */
