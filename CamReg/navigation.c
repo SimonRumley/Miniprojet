@@ -15,7 +15,7 @@ static uint8_t sensor_activate = 0;
 //simple P regulator implementation
 int16_t p_regulator(float distance, float goal){
 
-	//On utilise un P regulator pour corriger l'allignement / l'orientation du e-puck2 sur la ligne à suivre.
+	//On utilise un P regulator pour corriger l'allignement / l'orientation du e-puck2 sur la ligne Ã  suivre.
 
 	float error = 0;
 	float speed = 0;
@@ -63,10 +63,10 @@ static THD_FUNCTION(Navigation, arg) {
 
     	object_distance = get_object_distance();
 
-    	//frequence a laquelle se situe le pic maximal (norme max en fréquence du signal) detecté par le micro frontal
+    	//frequence a laquelle se situe le pic maximal (norme max en frÃ©quence du signal) detectÃ© par le micro frontal
     	max_norm_index = get_max_norm_index();
 
-    	//permet de verifier si deux sons à 3030Hz sont entendus entre deux thread (pour éviter les erreurs)
+    	//permet de verifier si deux sons Ã  3030Hz sont entendus entre deux thread (pour Ã©viter les erreurs)
     	if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H && k==0){
 			max_norm_index_t1 = max_norm_index;
 		}
@@ -114,7 +114,7 @@ static THD_FUNCTION(Navigation, arg) {
 			time_turn = chVTGetSystemTime();
 			//chprintf((BaseSequentialStream *)&SDU1,"delta: %d \n", delta_max_norm_index);
 
-			while(chVTGetSystemTime()-time_turn<MS2ST(2120)){
+			while(chVTGetSystemTime()-time_turn<MS2ST(2130)){
 				left_motor_set_speed(-TURNING_SPEED);
 				right_motor_set_speed(TURNING_SPEED);
 			}
