@@ -137,9 +137,7 @@ static THD_FUNCTION(ReadAudio, arg) {
     	//do a FFT to have the values in frequency (not time)
 		doFFT_optimized(FFT_SIZE, bufferCmplxInput);
 		arm_cmplx_mag_f32(bufferCmplxInput, bufferOutput, FFT_SIZE);
-		//100Hz
-
-		//chprintf((BaseSequentialStream *)&SDU1,"temps2: %d \n", time);
+		// Refresh 12,5 Hz.
 		chThdSleepUntilWindowed(time, time + MS2ST(80));
         }
 }

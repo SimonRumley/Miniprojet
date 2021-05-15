@@ -4,8 +4,6 @@
 #include <usbcfg.h>
 #include <capteur.h>
 #include "sensors/VL53L0X/VL53L0X.h"
-#include <motors.h>
-#include <process_image.h>
 #include <main.h>
 
 static	uint16_t object_distance = 0;
@@ -20,9 +18,10 @@ static THD_FUNCTION(Capteur, arg) {
     while(1)
     {
     	time = chVTGetSystemTime();
+    	//detect la distance entre le epuck2 et un objet place en face.
     	object_distance = VL53L0X_get_dist_mm();
-    	//chprintf((BaseSequentialStream *)&SDU1,"temps1: %d \n", time);
-    	chThdSleepUntilWindowed(time, time+MS2ST(50));// Refresh @  Hz. temps execution propre pris en compte
+    	// Refresh 20 Hz.
+    	chThdSleepUntilWindowed(time, time+MS2ST(50));
     }
 }
 
