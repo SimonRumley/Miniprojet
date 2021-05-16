@@ -87,13 +87,16 @@ static THD_FUNCTION(Navigation, arg) {
 				speed=0;
 				speed_correction=0;
 				clear_leds();
-				set_led(0, 1);
+				set_rgb_led(LED2,100,0,0);
+				set_rgb_led(LED8,100,0,0);
 			}
 			//ralenti si le feu est vert
 			else{
 				speed=SPEED_GREEN;
 				speed_correction=0;
 				clear_leds();
+				set_rgb_led(LED2,0,100,0);
+				set_rgb_led(LED8,0,100,0);
 			}
 		}
     	//si le TOF voit un objet (le feu) a moins de 8cm, il s'arrete pour eviter la collision
@@ -103,10 +106,10 @@ static THD_FUNCTION(Navigation, arg) {
 			speed=0;
 			speed_correction=0;
 			clear_leds();
-			set_led(0, 1);
-			set_led(1, 1);
-			set_led(2, 1);
-			set_led(3, 1);
+			set_rgb_led(LED2,100,65,0);
+			set_rgb_led(LED4,100,65,0);
+			set_rgb_led(LED6,100,65,0);
+			set_rgb_led(LED8,100,65,0);
 
 		}
     	//detection de l'alarme et le epuck2 fait un tour sur lui-meme

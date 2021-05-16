@@ -62,6 +62,9 @@ int main(void)
 	//inits the TOF
 	VL53L0X_start();
 
+	//starts RGB LEDs
+	spi_comm_start();
+
 	//starts the threads for the navigation and the processing of the image
 	navigation_start();
 	process_image_line_start();
